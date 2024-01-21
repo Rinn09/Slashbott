@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const userStats = require('../../userStats');
 const UserStat = require('../../models/UserStat');
+
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('level')
@@ -9,7 +9,13 @@ module.exports = {
     async execute(interaction) {
         try {
             const userId = interaction.user.id;
-            const stats = await userStats.getUserStats(userId);
+            const stats = await UserStat.findOne({ userId: userId });
+
+            if (!stats) {
+                // Nếu không có dữ liệu người dùng, bạn có thể thực hiện xử lý tại đây
+                await interaction.reply({ content: 'Không tìm thấy thông tin người dùng.', ephemeral: true });
+                return;
+            }
 
             const currentLevel = stats.userLevels || 0;
             const currentEXP = stats.userExp || 0;
