@@ -2,7 +2,7 @@
 	"token": "MTE4Oxxxxxxxxxxxxxxx6oJAg",
 	"clientId": "1xxxxxxxxxxxxxx208",
 	"guildId": "100xxxxxxxxxx18113",
-  "welcomeChannelId": "1115xxxxxxxxx92",
+        "welcomeChannelId": "1115xxxxxxxxx92",
 	"testChannel": "xxxxxxxxx033484",
 	"mongoosedbURI": "mongodb+sxxxxxxxxxxxxxxxxxxxxxxjority"
 }
